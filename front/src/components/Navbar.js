@@ -37,7 +37,7 @@ function Navbar() {
       <div className="navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">
           <li className="nav-item active">
-            <a className="nav-link" href="/home">
+            <a className="nav-link" href="/exercicios">
               Exercícios
             </a>
           </li>

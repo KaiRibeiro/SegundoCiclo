@@ -29,8 +29,8 @@ ser empregados de acordo com a operação a ser executada. Quanto ao banco de
 dados, será de livre escolha de cada aluno/dupla, podendo ser um banco de dados
 relacional (ex. MySQL ou PostgreSQL) ou um banco de dados NoSQL (ex. MongoDB).
 
-- [ ] Implementar uma API REST
-- [ ] Consumir os dados da API de forma assíncrona
+- ✅ Implementar uma API REST
+- ✅ Consumir os dados da API de forma assíncrona
 - [ ] Listar os dados da coleção/tabela 1 e 2
 - [ ] Mostrar os detalhes de um registro de cada coleção/tabela
 - [ ] Inserir novos registros para cada coleção/tabela
@@ -41,8 +41,8 @@ que em um dos formulários de cadastros tenha que se escolher um ou muitos
 itens relacionado ao outro tipo
 - ✅ Implementar o controle de acesso de acordo com usuários logados e não
 logados (API e cliente)
-- [ ] Fazer a validação de entradas de dados no cliente e no servidor
-- [ ] Fazer tratamento de erros no cliente e no servidor
+- ✅ Fazer a validação de entradas de dados no cliente e no servidor
+- ✅ Fazer tratamento de erros no cliente e no servidor
 - ✅ Atualizar o arquivo de configuração com os detalhes de acesso ao banco de
 dados
 - [ ] Criar um Docker-compose para suportar a execução da API, do banco de dados

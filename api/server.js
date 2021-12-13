@@ -44,6 +44,63 @@ app.get(
   }
 );
 
+app.delete(
+  "/exercicios",
+  function (req, res, next) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      res.status(400).json({ errors: errors.array() });
+    } else {
+      const Exercicios = db.Mongoose.model("exercicios", db.ExerciciosSchema, "exercicios");
+      Exercicios.findById(req.query.id).remove().then((Exercicios) => {
+        res.json(Exercicios);
+      });
+    }
+  }
+);
+
+app.get(
+  "/exercicios",
+  cookie("token").exists({ checkFalsy: true }),
+  function (req, res, next) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      res.status(400).json({ errors: errors.array() });
+    } else {
+      const Exercicios = db.Mongoose.model("exercicios", db.ExerciciosSchema, "exercicios");
+      Exercicios.find().then((Exercicios) => {
+        res.json(Exercicios);
+      });
+    }
+  }
+);
+
+app.put(
+  "/exercicios",
+  body("id").exists({ checkFalsy: true }),
+  body("nome").exists({ checkFalsy: true }),
+  body("descricao").exists({ checkFalsy: true }),
+  body("musculoAlvo").exists({ checkFalsy: true }),
+  function (req, res, next) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      res.status(400).json({ errors: errors.array() });
+    }
+    const data = req.body;
+    const Exercicios = db.Mongoose.model(
+      "exercicios",
+      db.ExerciciosSchema,
+      "exercicios"
+    );
+    Exercicios.findOneAndUpdate(data.id, {nome: data.nome, descricao: data.descricao, musculoAlvo: data.musculoAlvo}).then((Exercicios) => {
+      res.json(Exercicios);
+    }).then(err => {
+      console.log(err);
+      res.status(500);
+    });
+  }
+);
+
 app.post(
   "/login",
   body("user").exists({ checkFalsy: true }),
@@ -91,6 +148,38 @@ app.post(
           res.status(500).send({ errorMessage: "Error on login." });
         });
     }
+  }
+);
+
+app.post(
+  "/exercicios",
+  body("nome").exists({ checkFalsy: true }),
+  body("descricao").exists({ checkFalsy: true }),
+  body("musculoAlvo").exists({ checkFalsy: true }),
+  function (req, res, next) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      res.status(400).json({ errors: errors.array() });
+    }
+    const { nome, descricao, musculoAlvo } = req.body;
+    const Exercicios = db.Mongoose.model(
+      "exercicios",
+      db.ExerciciosSchema,
+      "exercicios"
+    );
+    const newExercicio = new Exercicios({
+      nome: nome,
+      descricao: descricao,
+      musculoAlvo: musculoAlvo,
+    });
+    newExercicio
+      .save()
+      .then((result) => {
+        res.status(200).send("ok");
+      })
+      .catch((err) => {
+        res.status(500).json(err.code);
+      });
   }
 );
 

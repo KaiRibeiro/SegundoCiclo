@@ -8,6 +8,7 @@ import Principal from "./views/Principal/Principal";
 import UserContext from "./contexts/UserContext";
 import Login from "./views/Login/Login";
 import Home from "./views/Home/Home";
+import Exercicios from "./views/Exercicios/Exercicios";
 
 function App() {
   const [username, setUsername] = useState("");
@@ -32,6 +33,7 @@ function App() {
           {id ? (
             <Routes>
               <Route exact path="*" element={<Home />} />
+              <Route exact path="exercicios" element={<Exercicios />} />
             </Routes>
           ) : (
             <Routes>

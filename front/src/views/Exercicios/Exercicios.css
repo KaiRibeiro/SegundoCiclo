@@ -1,0 +1,15 @@
+.erro {
+    background-color: white;
+    color: red;
+}
+
+.ok {
+    background-color: white;
+    color: green;
+}
+
+.exercicios {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
