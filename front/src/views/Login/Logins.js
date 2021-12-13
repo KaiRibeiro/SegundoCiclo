@@ -1,17 +1,19 @@
-import axios from "axios";
+import "./Login.css";
+import { useState, useContext } from "react";
 import { createBrowserHistory } from 'history';
-import { useContext, useState } from "react";
+import axios from "axios";
 import UserContext from "../../contexts/UserContext";
-import "./Register.css";
 
-function Register() {
+function Login() {
   const [user, setUser] = useState();
   const [password, setPassword] = useState();
+
 
   const userContext = useContext(UserContext);
   const history = createBrowserHistory();
 
-  function registerUser(e) {
+
+  function login(e) {
     e.preventDefault();
 
     const data = {
@@ -19,18 +21,18 @@ function Register() {
       password,
     };
 
-    axios.post(`${process.env.REACT_APP_BACK_URL}register`, data, {withCredentials:true}).then((response) => {
-      userContext.setId(response.data.id);
-      userContext.setUsername(response.data.username);
-      if(response.data.id) {
-        history.push("/");
-      }
+    axios.post(`${process.env.REACT_APP_BACK_URL}login`, data, {withCredentials:true}).then((response)  => {
+        userContext.setId(response.data.id);
+        userContext.setUsername(response.data.username);
+        if(response.data.id) {
+          history.push("/");
+        }
     });
   }
 
   return (
     <div className="form">
-      <form onSubmit={(e) => registerUser(e)}>
+      <form onSubmit={(e) => login(e)}>
         <div>
           <input
             type="text"
@@ -46,11 +48,11 @@ function Register() {
           />
         </div>
         <div className="btn">
-          <button type="submit">Registrar</button>
+          <button type="submit">Logar</button>
         </div>
       </form>
     </div>
   );
 }
 
-export default Register;
+export default Login;

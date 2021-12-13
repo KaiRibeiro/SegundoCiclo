@@ -39,11 +39,11 @@ relacional (ex. MySQL ou PostgreSQL) ou um banco de dados NoSQL (ex. MongoDB).
 - [ ] Desenvolver um relacionamento (1-N ou N-M) entre estas coleções/tabelas, tal
 que em um dos formulários de cadastros tenha que se escolher um ou muitos
 itens relacionado ao outro tipo
-- [ ] Implementar o controle de acesso de acordo com usuários logados e não
+- ✅ Implementar o controle de acesso de acordo com usuários logados e não
 logados (API e cliente)
 - [ ] Fazer a validação de entradas de dados no cliente e no servidor
 - [ ] Fazer tratamento de erros no cliente e no servidor
-- [ ] Atualizar o arquivo de configuração com os detalhes de acesso ao banco de
+- ✅ Atualizar o arquivo de configuração com os detalhes de acesso ao banco de
 dados
 - [ ] Criar um Docker-compose para suportar a execução da API, do banco de dados
 e opcionalmente da aplicação front-end
