@@ -1,0 +1,46 @@
+body {
+    background: url(../../public/images/treinos.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteudo {
+    display: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.link {
+    color: white;
+    text-decoration: none;
+    text-decoration-color: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.link:hover {
+    color: white;
+    text-decoration: none;
+    text-decoration-color: none;
+}
+
+.btns {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    margin: 2%;
+}
