@@ -52,41 +52,45 @@ app.post(
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       res.status(400).json({ errors: errors.array() });
-    }
-    const { user, password } = req.body;
-    const Users = db.Mongoose.model("users", db.UsersSchema, "users");
-    Users.findOne({ username: user })
-      .then((result) => {
-        if (!result) {
-          res.status(403).send({ errorMessage: "User doesn't exist." });
-        }
-        const passOk = bcrypt.compareSync(password, result.password);
-        if (passOk) {
-          jwt.sign(
-            { id: result._id, username: result._username },
-            process.env.SECRET,
-            (err, token) => {
-              if (err) {
-                res
-                  .status(500)
-                  .send({ errorMessage: "Error generating user token." });
-              } else {
-                res.cookie("token", token);
+    } else {
+      const { user, password } = req.body;
+      const Users = db.Mongoose.model("users", db.UsersSchema, "users");
+      Users.findOne({ username: user })
+        .then((result) => {
+          if (!result) {
+            res.status(403).send({ errorMessage: "User doesn't exist." });
+          } else {
+            const passOk = bcrypt.compareSync(password, result.password);
+            if (passOk) {
+              jwt.sign(
+                { id: result._id, username: result._username },
+                process.env.SECRET,
+                (err, token) => {
+                  if (err) {
+                    res
+                      .status(500)
+                      .send({ errorMessage: "Error generating user token." });
+                  } else {
+                    res.cookie("token", token);
 
-                res
-                  .status(200)
-                  .json({ id: result._id, username: result.username });
-                next();
-              }
+                    res
+                      .status(200)
+                      .json({ id: result._id, username: result.username });
+                    next();
+                  }
+                }
+              );
+            } else {
+              res
+                .status(403)
+                .send({ errorMessage: "Wrong username or password." });
             }
-          );
-        } else {
-          res.status(403).send({ errorMessage: "Wrong username or password." });
-        }
-      })
-      .catch((err) => {
-        res.status(500).send({ errorMessage: "Error on login." });
-      });
+          }
+        })
+        .catch((err) => {
+          res.status(500).send({ errorMessage: "Error on login." });
+        });
+    }
   }
 );
 

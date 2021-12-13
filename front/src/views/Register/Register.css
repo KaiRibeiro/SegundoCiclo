@@ -16,3 +16,8 @@ label {
     color: white;
     font-size: 1.3em;
 }
+
+.erro {
+    background-color: white;
+    color: red;
+}

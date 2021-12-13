@@ -17,13 +17,11 @@ function App() {
     axios
       .get(`${process.env.REACT_APP_BACK_URL}user`, { withCredentials: true })
       .then((response) => {
-        if (!response.data) {
-          setId(null);
-          setUsername(null);
-        } else {
           setId(response.data.id);
           setUsername(response.data.username);
-        }
+      }).catch((error) => {
+        setId(null);
+        setUsername(null);
       });
   }, []);
 
