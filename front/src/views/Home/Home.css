@@ -1,0 +1,9 @@
+.textoResumo {
+    background-color: white;
+    border-width: 1em;
+    border: solid black;
+    text-align: justify;
+    width: 40%;
+    padding: 2%;
+    font-size: 1.5em;
+}

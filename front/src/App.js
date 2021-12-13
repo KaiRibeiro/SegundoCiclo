@@ -6,8 +6,8 @@ import axios from "axios";
 import Register from "./views/Register/Register";
 import Principal from "./views/Principal/Principal";
 import UserContext from "./contexts/UserContext";
-import Login from "./views/Login/Logins";
-import Home from "./views/Home";
+import Login from "./views/Login/Login";
+import Home from "./views/Home/Home";
 
 function App() {
   const [username, setUsername] = useState("");

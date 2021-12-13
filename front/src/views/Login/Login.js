@@ -61,7 +61,7 @@ function Login() {
   }
 
   return (
-    <main>
+    <main className="main">
       <div className="form">
         <form>
           <div className="inputGroup">
@@ -105,8 +105,7 @@ function Login() {
           {error ? <div className="erro">{errorMsg}</div> : null}
         </form>
       </div>
-    </main>
-  );
+</main>  );
 }
 
 export default Login;

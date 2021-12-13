@@ -4,7 +4,7 @@ import bigLogo from "../../public/images/bigLogo.png";
 
 function Principal() {
   return (
-    <main>
+    <main className="main">
       <div className="conteudo">
         <div>
           <img src={bigLogo} alt="Logo" />
@@ -19,8 +19,7 @@ function Principal() {
           </button>
         </div>
       </div>
-    </main>
-  );
+</main>  );
 }
 
 export default Principal;

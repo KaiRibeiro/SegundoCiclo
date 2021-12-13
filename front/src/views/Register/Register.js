@@ -58,7 +58,7 @@ function Register() {
   }
 
   return (
-    <main>
+    <main className="main">
       <div className="form">
         <form onSubmit={(e) => registerUser(e)}>
           <div className="inputGroup">
@@ -103,8 +103,7 @@ function Register() {
           null}
         </form>
       </div>
-    </main>
-  );
+</main>  );
 }
 
 export default Register;
