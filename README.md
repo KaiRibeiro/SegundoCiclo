@@ -31,12 +31,12 @@ relacional (ex. MySQL ou PostgreSQL) ou um banco de dados NoSQL (ex. MongoDB).
 
 - ✅ Implementar uma API REST
 - ✅ Consumir os dados da API de forma assíncrona
-- [ ] Listar os dados da coleção/tabela 1 e 2
-- [ ] Mostrar os detalhes de um registro de cada coleção/tabela
-- [ ] Inserir novos registros para cada coleção/tabela
-- [ ] Alterar um registro para cada coleção/tabela
-- [ ] Excluir um registro de cada coleção/tabela
-- [ ] Desenvolver um relacionamento (1-N ou N-M) entre estas coleções/tabelas, tal
+- ➗ Listar os dados da coleção/tabela 1 e 2
+- ➗ Mostrar os detalhes de um registro de cada coleção/tabela
+- ➗ Inserir novos registros para cada coleção/tabela
+- ➗ Alterar um registro para cada coleção/tabela
+- ➗ Excluir um registro de cada coleção/tabela
+- ❌ Desenvolver um relacionamento (1-N ou N-M) entre estas coleções/tabelas, tal
 que em um dos formulários de cadastros tenha que se escolher um ou muitos
 itens relacionado ao outro tipo
 - ✅ Implementar o controle de acesso de acordo com usuários logados e não
@@ -45,7 +45,9 @@ logados (API e cliente)
 - ✅ Fazer tratamento de erros no cliente e no servidor
 - ✅ Atualizar o arquivo de configuração com os detalhes de acesso ao banco de
 dados
-- [ ] Criar um Docker-compose para suportar a execução da API, do banco de dados
-e opcionalmente da aplicação front-end
-- [ ] Realizar uma carga automática dos dados, tal que, cada coleção/tabela tenha ao
+- ✅ Criar um Docker-compose para suportar a execução da API, do banco de dados
+e opcionalmente da aplicação front-end (Foi utilizado mongo Atlas cloud para o db)
+- ❌ Realizar uma carga automática dos dados, tal que, cada coleção/tabela tenha ao
 menos 5 registros prévios
+
+## Devido a problemas de tempo não foi possível concluir no projeto o segundo CRUD e o carregamento prévio de dados.
